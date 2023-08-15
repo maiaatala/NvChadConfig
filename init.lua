@@ -15,3 +15,8 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 vim.keymap.set("n", "<C-z>", "<NOP>")
 vim.keymap.set("v", "<C-z>", "<NOP>")
 vim.keymap.set("i", "<C-z>", "<NOP>")
+
+local opt_config = vim.opt
+
+opt_config.relativenumber = true -- Show relative line numbers
+opt_config.number = true -- Shows absolute line number on cursor line (when relative number is on)
