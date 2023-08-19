@@ -29,5 +29,30 @@ local plugins = {
     build = ":TSUpdate",
     event = "BufReadPost",
   },
+  {
+    "NvChad/nvterm",
+    config = function()
+      require("nvterm").setup {
+
+        terminals = {
+          type_opts = {
+            float = {
+              relative = "editor",
+              width = 0.6,
+              col = 0.4,
+              height = 0.5,
+              row = 0.05,
+            },
+            horizontal = {
+              split_ratio = 0.35,
+            },
+            vertical = {
+              split_ratio = 0.4,
+            },
+          },
+        },
+      }
+    end,
+  },
 }
 return plugins
