@@ -5,11 +5,15 @@ M.disabled = {
 }
 
 M.abc = {
-  n = {},
+  n = {
+    ["<C-d>"] = { "<C-d>zz", "N:Keep cursor middle when moving paga down" },
+    ["<C-u>"] = { "<C-u>zz", "N:Keep cursor middle when moving paga up" },
+  },
+
   i = {},
   v = {
-    ["J"] = { ":m '>+1<CR>gv=gv" },
-    ["K"] = { ":m '<-2<CR>gv=gv" },
+    ["J"] = { ":m '>+1<CR>gv=gv", "V:Move line down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "V:Move line up" },
   },
 }
 
