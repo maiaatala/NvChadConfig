@@ -38,8 +38,8 @@ local plugins = {
           type_opts = {
             float = {
               relative = "editor",
-              width = 0.6,
-              col = 0.4,
+              width = 0.5,
+              col = 0.5,
               height = 0.5,
               row = 0.05,
             },
