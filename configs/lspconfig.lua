@@ -1,7 +1,6 @@
 -- custom/configs/lspconfig.lua
-
-local lspconfig = require "lspconfig"
 local configs = require "plugins.configs.lspconfig"
+local lspconfig = require "lspconfig"
 
 -- lspconfig.tsserver.setup {
 --   on_attach = function(client)
@@ -13,6 +12,7 @@ local configs = require "plugins.configs.lspconfig"
 
 local servers = {
   "tsserver",
+  "ocamllsp",
 }
 
 for _, server in ipairs(servers) do
@@ -21,3 +21,18 @@ for _, server in ipairs(servers) do
     capabilities = configs.capabilities,
   }
 end
+--
+-- lspconfig.ocamllsp.setup {
+--   cmd = { "ocaml-lsp" },
+--   filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+--   root_dir = lspconfig.util.root_pattern(
+--     "*.opam",
+--     "easy.json",
+--     "package.json",
+--     ".git",
+--     "dune-project",
+--     "dune-workspace"
+--   ),
+--   on_attach = configs.on_attach,
+--   capabilities = configs.capabilities,
+-- }

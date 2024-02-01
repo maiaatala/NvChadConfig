@@ -14,6 +14,7 @@ local sources = {
     end,
   },
   formatting.stylua,
+  formatting.ocamlformat,
 
   null_ls.builtins.code_actions.eslint_d, -- suggest fixes from eslint
 

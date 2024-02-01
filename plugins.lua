@@ -10,6 +10,7 @@ local plugins = {
         "prettierd",
         "eslint_d",
         "lua-language-server",
+        "ocamlformat",
       },
     },
   },
