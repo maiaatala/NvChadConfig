@@ -11,8 +11,8 @@ M.abc = {
     ["<n>"] = { "nzzzv", "N:Keep cursor middle when searching" },
     ["<N>"] = { "Nzzzv", "N:Keep cursor middle when searching" },
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>v"] = { ":vsp", "split screen vertically", opts = { nowait = true } },
-    ["<leaer>h"] = { ":sp", "split screen horizontally", opts = { nowait = true } },
+    ["<leader>|"] = { "<cmd>:vsp<CR>", "split screen vertically", opts = { nowait = true } },
+    ["<leader>_"] = { "<cmd>:sp<CR>", "split screen horizontally", opts = { nowait = true } },
     ["<leader>tt"] = {
       function()
         require("base46").toggle_transparency()
