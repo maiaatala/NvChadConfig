@@ -57,8 +57,10 @@ local plugins = {
   },
   {
     "stevearc/oil.nvim",
-    opts = {},
-    -- Optional dependencies
+    lazy = false, -- we need this plugin at startup
+    config = function()
+      require "custom.configs.oil_config"
+    end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }

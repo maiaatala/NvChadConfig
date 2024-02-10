@@ -30,7 +30,4 @@ vim.keymap.set("i", "<C-z>", "<NOP>")
 
 local opt_config = vim.opt
 
-opt_config.relativenumber = true -- Show relative line numbers
 opt_config.number = true -- Shows absolute line number on cursor line (when relative number is on)
-
-require "configs.oil_config"
