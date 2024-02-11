@@ -38,12 +38,13 @@ M.disabled = {
 
 M.abc = {
   n = {
+
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>tt"] = {
       function()
         require("base46").toggle_transparency()
       end,
-      "toggle transparency",
+      "󱡕 toggle transparency",
     },
   },
   i = {},
@@ -65,25 +66,25 @@ M.motions = {
   },
   i = {},
   v = {
-    ["J"] = { ":m '>+1<CR>gv=gv", "V:Move line down" },
-    ["K"] = { ":m '<-2<CR>gv=gv", "V:Move line up" },
+    ["K"] = { ":m '<-2<CR>gv=gv", " Move line up" },
+    ["J"] = { ":m '>+1<CR>gv=gv", " Move line down" },
   },
 }
 
 M.text = {
   n = {
     ["J"] = { "mzJ`z", "Join line while keeping the cursor in the same position" },
-    ["<leader>d"] = { '"_d', "delete without copying" },
+    ["<leader>d"] = { '"_d', "󰗨 delete without copying" },
     ["<C-c>"] = { "<ESC>", "makes ctrl c behave like esc when column editing" },
-    ["<leader><F2>"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "replace current word in file" },
+    ["<leader><F2>"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], " replace current word in file" },
   },
   i = {
     ["<A-d>"] = { "<ESC>diwi", " Delete word AND CONTINUES" },
   },
   v = {
-    ["K"] = { ":m '<-2<CR>gv=gv", "V:Move line up" },
-    ["J"] = { ":m '>+1<CR>gv=gv", "V:Move line down" },
-    ["<leader>d"] = { '"_d', "delete without copying" },
+    ["K"] = { ":m '<-2<CR>gv=gv", " Move line up" },
+    ["J"] = { ":m '>+1<CR>gv=gv", " Move line down" },
+    ["<leader>d"] = { '"_d', "󰗨 delete without copying" },
   },
 }
 
