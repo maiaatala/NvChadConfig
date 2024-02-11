@@ -50,6 +50,12 @@ M.abc = {
   v = {},
 }
 
+M.git = {
+  n = {
+    ["<leader>lg"] = { "<CMD>LazyGit<CR>", "  LazyGit" },
+  },
+}
+
 M.motions = {
   n = {
     ["<C-d>"] = { "<C-d>zz", "N:Keep cursor middle when moving paga down" },

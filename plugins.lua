@@ -72,5 +72,9 @@ local plugins = {
       require "custom.configs.ufo"
     end,
   },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+  },
 }
 return plugins
