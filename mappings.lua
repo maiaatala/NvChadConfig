@@ -67,16 +67,6 @@ M.motions = {
 M.text = {
   n = {
     ["J"] = { "mzJ`z", "Join line while keeping the cursor in the same position" },
-    ["dd"] = {
-      function()
-        if vim.api.nvim_get_current_line():match "^%s*$" then
-          return '"_dd'
-        else
-          return "dd"
-        end
-      end,
-      "Smart dd",
-    },
     ["<leader>d"] = { '"_d', "delete without copying" },
     ["<C-c>"] = { "<ESC>", "makes ctrl c behave like esc when column editing" },
     ["<leader><F2>"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "replace current word in file" },
