@@ -1,14 +1,18 @@
 -- custom/configs/lspconfig.lua
-local configs = require "plugins.configs.lspconfig"
+require "plugins.configs.lspconfig"
+
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
+
 local lspconfig = require "lspconfig"
 
--- lspconfig.tsserver.setup {
---   on_attach = function(client)
---     client.resolved_capabilities.document_formatting = false
---     configs.on_attach(client)
---   end,
---   capabilities = configs.capabilities,
--- }
+local ok, _ = pcall(require, "ufo")
+if ok then
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
+end
 
 local servers = {
   "tsserver",
@@ -17,8 +21,8 @@ local servers = {
 
 for _, server in ipairs(servers) do
   lspconfig[server].setup {
-    on_attach = configs.on_attach,
-    capabilities = configs.capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 --

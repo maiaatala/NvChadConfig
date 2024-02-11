@@ -63,5 +63,14 @@ local plugins = {
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+    },
+    config = function()
+      require "custom.configs.ufo"
+    end,
+  },
 }
 return plugins
