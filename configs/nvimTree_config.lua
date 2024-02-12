@@ -17,8 +17,6 @@ local function NvimTreeAttach(bufnr)
   vim.keymap.set("n", "yn", api.fs.copy.filename, opts "Copy Name")
   vim.keymap.set("n", "yr", api.fs.copy.relative_path, opts "Copy Relative Path")
   vim.keymap.set("n", "yy", api.fs.copy.absolute_path, opts "Copy Absolute Path")
-  vim.keymap.set("n", ">", api.node.navigate.sibling.next, opts "Next Sibling")
-  vim.keymap.set("n", "<", api.node.navigate.sibling.prev, opts "Previous Sibling")
 end
 
 local Config = {}
