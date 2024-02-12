@@ -1,5 +1,5 @@
 -- local NvimTreeAttach = require "custom.configs.nvimTree_config"
-local overrides = require "custom.configs.plugin_overrides"
+-- local overrides = require "custom.configs.plugin_overrides"
 
 local plugins = {
   {
@@ -35,7 +35,7 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "antosha417/nvim-lsp-file-operations" },
     config = function()
-      require("nvim-tree").setup(overrides.nvimtree)
+      require("nvim-tree").setup(require "custom.configs.nvimTree_config")
     end,
   },
   {
