@@ -114,6 +114,8 @@ M.split = {
       end,
       "[l]: Move to window on the right or create a split",
     },
+    ["Zz"] = { "<C-w>|<C-w>_", " max zoom in a window" },
+    ["Zo"] = { "<C-w>=", " max zoom in a window" },
   },
 }
 

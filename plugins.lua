@@ -12,6 +12,7 @@ local plugins = {
         "eslint_d",
         "lua-language-server",
         "ocamlformat",
+        "stylua",
       },
     },
   },
