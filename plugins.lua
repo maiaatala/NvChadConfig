@@ -1,5 +1,5 @@
 -- local NvimTreeAttach = require "custom.configs.nvimTree_config"
--- local overrides = require "custom.configs.plugin_overrides"
+-- l1cal overrides = require "custom.configs.plugin_overrides"
 
 local plugins = {
   {
@@ -74,6 +74,7 @@ local plugins = {
   },
   {
     "kevinhwang91/nvim-ufo",
+    lazy = false,
     dependencies = {
       "kevinhwang91/promise-async",
     },
