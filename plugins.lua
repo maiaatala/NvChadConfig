@@ -3,11 +3,6 @@
 
 local plugins = {
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     opts = {
@@ -90,6 +85,22 @@ local plugins = {
   {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    opts = {},
+    -- config = function()
+    --   require("nvim-surround").setup {
+    --     -- Configuration here, or leave empty to use defaults
+    --
+    -- end,
   },
 }
 return plugins
