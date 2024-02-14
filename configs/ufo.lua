@@ -1,6 +1,6 @@
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldenable = true
-vim.o.foldlevelstart = 1
+vim.o.foldlevelstart = 99
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
@@ -44,7 +44,6 @@ require("ufo").setup {
     if filetype == "markdown" then
       return ""
     end
-
     -- return ftMap[filetype] or { "treesitter", "indent" }
     -- return { "treesitter", "indent" }
     local function handleFallbackException(bufnr, err, providerName)
@@ -69,8 +68,8 @@ require("ufo").setup {
       end
   end,
 }
--- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zp", function()
