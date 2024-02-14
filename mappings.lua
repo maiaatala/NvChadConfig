@@ -66,6 +66,8 @@ M.motions = {
     ["N"] = { "Nzz", "N:Keep cursor middle when searching" },
     ["g;"] = { "g;zz", "N:Keep cursor middle when going BACK in insert positions" },
     ["g,"] = { "g;zz", "N:Keep cursor middle when going FORWARD in insert positions" },
+    ["zj"] = { "zjzz", "N:Keep cursor middle when jumping NEXT fold" },
+    ["zk"] = { "zkzz", "N:Keep cursor middle when jumping PREV fold 0" },
   },
   i = {},
   v = {
@@ -118,7 +120,7 @@ M.split = {
       "[l]: Move to window on the right or create a split",
     },
     ["Zz"] = { "<C-w>|<C-w>_", " max zoom in a window" },
-    ["Zo"] = { "<C-w>=", " max zoom in a window" },
+    ["Zo"] = { "<C-w>=", " zoom ou" },
   },
 }
 
