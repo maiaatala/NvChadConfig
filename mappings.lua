@@ -33,12 +33,13 @@ end
 M.disabled = {
   n = {
     ["<leader>b"] = { "", "disable create new buffer" },
+    ["<leader>h"] = { "", "disable create horizontal terminal" },
+    ["<leader>v"] = { "", "disable create vertical terminal" },
   },
 }
 
 M.abc = {
   n = {
-
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>tt"] = {
       function()
@@ -63,6 +64,8 @@ M.motions = {
     ["<C-u>"] = { "<C-u>zz", "N:Keep cursor middle when moving paga up" },
     ["n"] = { "nzz", "N:Keep cursor middle when searching" },
     ["N"] = { "Nzz", "N:Keep cursor middle when searching" },
+    ["g;"] = { "g;zz", "N:Keep cursor middle when going BACK in insert positions" },
+    ["g,"] = { "g;zz", "N:Keep cursor middle when going FORWARD in insert positions" },
   },
   i = {},
   v = {
@@ -135,4 +138,67 @@ M.lspconfig = {
     },
   },
 }
+
+M.harpoon = {
+  n = {
+    ["<leader>ha"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():append()
+      end,
+      "󱡁 Harpoon ADD file",
+    },
+    ["<leader>ht"] = { "<CMD>Telescope harpoon marks<CR>", "󱡀 Toggle quick menu" },
+    ["<leader>hm"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+      "󱠿 Harpoon Menu",
+    },
+    ["<leader>1"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():select(1)
+      end,
+      " 󱪼 Navigate to file 1",
+    },
+    ["<leader>2"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():select(2)
+      end,
+      " 󱪽 Navigate to file 2",
+    },
+    ["<leader>3"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():select(3)
+      end,
+      " 󱪾 Navigate to file 3",
+    },
+    ["<leader>4"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():select(4)
+      end,
+      " 󱪿 Navigate to file 4",
+    },
+    ["<leader>hl"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():next()
+      end,
+      "󰒭 Navigate to next file",
+    },
+    ["<leader>hh"] = {
+      function()
+        local harpoon = require "harpoon"
+        harpoon:list():prev()
+      end,
+      "󰒮 Navigate to previous file",
+    },
+  },
+}
+
 return M
