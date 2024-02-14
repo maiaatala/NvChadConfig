@@ -1,6 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
-M.ui = { theme = "monekai", transparency = true }
+M.ui = { theme = "palenight", transparency = true }
 M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
 return M

@@ -99,8 +99,18 @@ local plugins = {
     -- config = function()
     --   require("nvim-surround").setup {
     --     -- Configuration here, or leave empty to use defaults
-    --
     -- end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufReadPost",
+    config = function()
+      require "custom.configs.todo_comments"
+    end,
+  },
+  {
+    "f-person/git-blame.nvim",
+    cmd = "GitBlameToggle",
   },
 }
 return plugins
