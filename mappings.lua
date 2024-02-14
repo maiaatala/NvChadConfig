@@ -61,8 +61,8 @@ M.motions = {
   n = {
     ["<C-d>"] = { "<C-d>zz", "N:Keep cursor middle when moving paga down" },
     ["<C-u>"] = { "<C-u>zz", "N:Keep cursor middle when moving paga up" },
-    ["<n>"] = { "nzzzv", "N:Keep cursor middle when searching" },
-    ["<N>"] = { "Nzzzv", "N:Keep cursor middle when searching" },
+    ["n"] = { "nzz", "N:Keep cursor middle when searching" },
+    ["N"] = { "Nzz", "N:Keep cursor middle when searching" },
   },
   i = {},
   v = {
