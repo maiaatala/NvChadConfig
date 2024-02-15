@@ -87,6 +87,10 @@ Config = {
       resize_window = false,
     },
   },
+  update_focused_file = {
+    enable = true,
+    update_root = false,
+  },
 }
 
 return Config
