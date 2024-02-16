@@ -52,3 +52,11 @@ local function open_nvim_tree(data)
   require("nvim-tree.api").tree.open()
 end
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+-- Auto format on save, but it will mess with undo history
+autocmd("BufWritePre", {
+  pattern = { "*" },
+  callback = function()
+    vim.lsp.buf.format { async = false }
+  end,
+})
