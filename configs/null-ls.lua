@@ -13,6 +13,7 @@ local sources = {
       return utils.root_has_file ".prettierrc" or utils.root_has_file "prettier.config.js"
     end,
   },
+  formatting.eslint_d,
   formatting.stylua,
   formatting.ocamlformat,
 
