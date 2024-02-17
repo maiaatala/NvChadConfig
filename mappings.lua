@@ -89,7 +89,7 @@ M.text = {
     ["<leader>P"] = { '"0P', " Special yank only paste" },
   },
   i = {
-    ["<A-d>"] = { "<ESC>diwi", " Delete word AND CONTINUES" },
+    ["<A-d>"] = { "<C-o>diw", " Delete word AND CONTINUES" },
   },
   v = {
     ["K"] = { ":m '<-2<CR>gv=gv", " Move line up" },
