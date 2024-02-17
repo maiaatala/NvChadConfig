@@ -127,7 +127,6 @@ M.split = {
 M.lspconfig = {
   n = {
     ["<leader><leader>n"] = { "<CMD> lua require('tsht').nodes() <CR>", " Select Node" },
-    ["<F12>"] = { "<CMD>Glance references<CR>", "󰘐 References" },
     ["<leader><leader>a"] = {
       function()
         if isCodeActionAvailable() then
@@ -138,6 +137,10 @@ M.lspconfig = {
       end,
       "Go: Code Action",
     },
+    ["<leader>gR"] = { "<CMD>Glance references<CR>", " References" },
+    ["<leader>gD"] = { "<CMD>Glance definitions<CR>", "󰘐 definitions" },
+    ["<leader>gT"] = { "<CMD>Glance type_definitions<CR>", " type def" },
+    ["<leader>gI"] = { "<CMD>Glance implementations<CR>", " implementations" },
   },
 }
 

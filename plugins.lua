@@ -124,5 +124,12 @@ local plugins = {
       require "custom.configs.trouble"
     end,
   },
+  {
+    "dnlhc/glance.nvim",
+    cmd = "Glance",
+    config = function()
+      require "custom.configs.glance"
+    end,
+  },
 }
 return plugins
