@@ -1,5 +1,5 @@
 -- local NvimTreeAttach = require "custom.configs.nvimTree_config"
--- l1cal overrides = require "custom.configs.plugin_overrides"
+local overrides = require "custom.configs.plugin_overrides"
 
 local plugins = {
   {
@@ -31,6 +31,36 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "BufReadPost",
+    dependencies = {
+      {
+        "windwp/nvim-ts-autotag",
+        opts = { enable_close_on_slash = false },
+      },
+      "filNaj/tree-setter",
+      "echasnovski/mini.ai",
+      "piersolenski/telescope-import.nvim",
+      "RRethy/nvim-treesitter-textsubjects",
+      "kevinhwang91/promise-async",
+      {
+        "kevinhwang91/nvim-ufo",
+        lazy = false,
+        config = function()
+          require "custom.configs.ufo"
+        end,
+      },
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        init = function()
+          vim.g.skip_ts_context_commentstring_module = true
+        end,
+        config = function()
+          require("ts_context_commentstring").setup {
+            enable_autocmd = false,
+          }
+        end,
+      },
+    },
+    opts = overrides.treesitter,
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -72,16 +102,7 @@ local plugins = {
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  {
-    "kevinhwang91/nvim-ufo",
-    lazy = false,
-    dependencies = {
-      "kevinhwang91/promise-async",
-    },
-    config = function()
-      require "custom.configs.ufo"
-    end,
-  },
+
   {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
@@ -90,9 +111,10 @@ local plugins = {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = {
+    opts = {
       settings = {
         save_on_toggle = true,
+        save_on_change = true,
       },
     },
   },
@@ -129,6 +151,33 @@ local plugins = {
     cmd = "Glance",
     config = function()
       require "custom.configs.glance"
+    end,
+  },
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "BufReadPost",
+    config = function()
+      local rainbow_delimiters = require "rainbow-delimiters"
+
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          vim = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
     end,
   },
 }
