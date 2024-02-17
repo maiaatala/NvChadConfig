@@ -41,7 +41,7 @@ M.disabled = {
 M.abc = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>tt"] = {
+    ["<leader>ttt"] = {
       function()
         require("base46").toggle_transparency()
       end,
@@ -200,6 +200,12 @@ M.harpoon = {
       end,
       "󰒮 Navigate to previous file",
     },
+  },
+}
+
+M.trouble = {
+  n = {
+    ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "󰔫 Toggle warnings" },
   },
 }
 
