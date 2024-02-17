@@ -81,7 +81,12 @@ M.text = {
     ["J"] = { "mzJ`z", "Join line while keeping the cursor in the same position" },
     ["<leader>d"] = { '"_d', "󰗨 delete without copying" },
     ["<C-c>"] = { "<ESC>", "makes ctrl c behave like esc when column editing" },
-    ["<leader><F2>"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], " replace current word in file" },
+    ["<leader><F2>"] = {
+      [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+      " replace current word in file",
+    },
+    ["<leader>p"] = { '"0p', " Special yank only paste" },
+    ["<leader>P"] = { '"0P', " Special yank only paste" },
   },
   i = {
     ["<A-d>"] = { "<ESC>diwi", " Delete word AND CONTINUES" },
@@ -90,6 +95,8 @@ M.text = {
     ["K"] = { ":m '<-2<CR>gv=gv", " Move line up" },
     ["J"] = { ":m '>+1<CR>gv=gv", " Move line down" },
     ["<leader>d"] = { '"_d', "󰗨 delete without copying" },
+    ["<leader>p"] = { '"0p', " Special yank only paste" },
+    ["<leader>P"] = { '"0P', " Special yank only paste" },
   },
 }
 
