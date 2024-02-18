@@ -28,6 +28,24 @@ local plugins = {
     end,
   },
   {
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+    config = function()
+      vim.keymap.set("i", "<c-Right>", function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<c-Left>", function()
+        return vim.fn["codeium#CycleCompletions"](-1)
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<c-Up>", function()
+        return vim.fn["codeium#Clear"]()
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<c-Down>", function()
+        return vim.fn["codeium#Complete"]()
+      end, { expr = true, silent = true })
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "BufReadPost",
