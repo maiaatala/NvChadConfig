@@ -53,9 +53,9 @@ M.treesitter = {
       ["i."] = "textsubjects-container-inner",
     },
   },
-  tree_setter = {
-    enable = true,
-  },
+  -- tree_setter = {
+  --   enable = true,
+  -- },
   rainbow = {
     enable = true,
     extended_mode = false,

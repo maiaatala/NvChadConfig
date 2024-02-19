@@ -54,7 +54,7 @@ local plugins = {
         "windwp/nvim-ts-autotag",
         opts = { enable_close_on_slash = false },
       },
-      "filNaj/tree-setter",
+      -- "filNaj/tree-setter",
       "echasnovski/mini.ai",
       "piersolenski/telescope-import.nvim",
       "RRethy/nvim-treesitter-textsubjects",
