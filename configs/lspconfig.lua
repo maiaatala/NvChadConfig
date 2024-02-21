@@ -19,12 +19,33 @@ local servers = {
   "ocamllsp",
 }
 
+
 for _, server in ipairs(servers) do
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+lspconfig.lua_ls.setup {
+  onAttach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = { "use", "vim" },
+      },
+      workspace = {
+        library = {
+          vim.env.VIMRUNTIME,
+        },
+      },
+    },
+  },
+}
 --
 -- lspconfig.ocamllsp.setup {
 --   cmd = { "ocaml-lsp" },
