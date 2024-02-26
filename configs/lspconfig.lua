@@ -16,9 +16,9 @@ end
 
 local servers = {
   "tsserver",
+  "eslint",
   "ocamllsp",
 }
-
 
 for _, server in ipairs(servers) do
   lspconfig[server].setup {
@@ -46,7 +46,7 @@ lspconfig.lua_ls.setup {
     },
   },
 }
---
+
 -- lspconfig.ocamllsp.setup {
 --   cmd = { "ocaml-lsp" },
 --   filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
