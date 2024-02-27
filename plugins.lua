@@ -67,6 +67,12 @@ local plugins = {
         end,
       },
       {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = function()
+          require "custom.configs.treesitter_context"
+        end,
+      },
+      {
         "JoosepAlviste/nvim-ts-context-commentstring",
         init = function()
           vim.g.skip_ts_context_commentstring_module = true

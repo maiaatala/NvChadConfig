@@ -68,6 +68,13 @@ M.motions = {
     ["g,"] = { "g;zz", "N:Keep cursor middle when going FORWARD in insert positions" },
     ["zj"] = { "zjzz", "N:Keep cursor middle when jumping NEXT fold" },
     ["zk"] = { "zkzz", "N:Keep cursor middle when jumping PREV fold 0" },
+    ["[c"] = {
+      function()
+        require("treesitter-context").go_to_context(vim.v.count1)
+        vim.cmd "normal! zz"
+      end,
+      "Jump to stick header context",
+    },
   },
   i = {},
   v = {
