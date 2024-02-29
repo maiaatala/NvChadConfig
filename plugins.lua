@@ -28,6 +28,12 @@ local plugins = {
     end,
   },
   {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      return require "custom.configs.cmp_overrides"
+    end,
+  },
+  {
     "Exafunction/codeium.vim",
     event = "BufEnter",
     config = function()
