@@ -54,9 +54,35 @@ end
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 -- Auto format on save, but it will mess with undo history
+-- autocmd("BufWritePre", {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.lsp.buf.format { async = false }
+--   end,
+-- })
+
+-- like the one below but for eslint fix all
 autocmd("BufWritePre", {
-  pattern = { "*" },
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end,
+  pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+  command = "EslintFixAll",
 })
+
+-- auto organize imports using tsserver but it conflicts with eslint project configs
+-- autocmd("BufWritePre", {
+--   group = vim.api.nvim_create_augroup("TS_on_save_actions", { clear = true }),
+--   desc = "TS_on_save_actions",
+--   pattern = { "*.ts" },
+--   callback = function()
+--     local params = vim.lsp.util.make_range_params()
+--     params.context = { only = { "source.organizeImports.ts" } }
+--     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+--     for _, res in pairs(result or {}) do
+--       for _, r in pairs(res.result or {}) do
+--         if r.kind == "source.organizeImports.ts" then
+--           vim.lsp.buf.code_action { apply = true, context = { only = { "source.organizeImports.ts" } } }
+--           vim.cmd "write"
+--         end
+--       end
+--     end
+--   end,
+-- })

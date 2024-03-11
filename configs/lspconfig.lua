@@ -15,7 +15,7 @@ if ok then
 end
 
 local servers = {
-  "tsserver",
+  -- "tsserver",
   "eslint",
   "ocamllsp",
 }
@@ -26,6 +26,17 @@ for _, server in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.tsserver.setup {
+  onAttach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      importModuleSpecifierPreference = "relative",
+      importModuleSpecifierEnding = "minimal",
+    },
+  },
+}
 
 lspconfig.lua_ls.setup {
   onAttach = on_attach,
