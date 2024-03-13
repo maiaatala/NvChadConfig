@@ -91,6 +91,9 @@ Config = {
     enable = true,
     update_root = false,
   },
+  view = {
+    adaptive_size = true,
+  },
 }
 
 return Config
