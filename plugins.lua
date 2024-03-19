@@ -13,6 +13,7 @@ local plugins = {
         "lua-language-server",
         "ocamlformat",
         "stylua",
+        "htmx-lsp",
       },
     },
   },

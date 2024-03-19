@@ -18,6 +18,7 @@ local servers = {
   -- "tsserver",
   "eslint",
   "ocamllsp",
+  "htmx",
 }
 
 for _, server in ipairs(servers) do
