@@ -18,6 +18,7 @@ local servers = {
   -- "tsserver",
   "eslint",
   "ocamllsp",
+  -- "gleam",
   "htmx",
 }
 
@@ -57,6 +58,14 @@ lspconfig.lua_ls.setup {
       },
     },
   },
+}
+
+lspconfig.gleam.setup {
+  cmd = { "gleam", "lsp" },
+  filetypes = { "gleam" },
+  -- root_dir = lspconfig.util.root_pattern("gleam.toml"),
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 -- lspconfig.ocamllsp.setup {
