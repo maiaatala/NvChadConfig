@@ -18,6 +18,7 @@ local servers = {
   -- "tsserver",
   "eslint",
   "ocamllsp",
+  "gopls",
   -- "gleam",
   "htmx",
 }
