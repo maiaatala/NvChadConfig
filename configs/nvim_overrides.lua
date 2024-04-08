@@ -1,6 +1,8 @@
 local autocmd = vim.api.nvim_create_autocmd
 local create_cmd = vim.api.nvim_create_user_command
 
+vim.cmd "command! Slinefeed :%s/\\r//" -- fix for ^M at the end of pasted lines
+
 -- DISABLE CTRL Z YOU WILL THANK ME LATER
 vim.keymap.set("n", "<C-z>", "<NOP>")
 vim.keymap.set("v", "<C-z>", "<NOP>")
