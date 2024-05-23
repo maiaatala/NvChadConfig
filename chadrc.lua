@@ -17,18 +17,18 @@ M.ui = {
       table.remove(modules, 9) -- remove cursor position
       table.remove(modules, 3) -- remove git branch info
 
-      -- table.insert(
-      --   modules,
-      --   7,
-      --   (function()
-      --     return (
-      --       "%#St_codeiumStatus#"
-      --       .. "󰘦 "
-      --       .. vim.api.nvim_call_function("codeium#GetStatusString", {})
-      --       .. " ~ "
-      --     )
-      --   end)()
-      -- )
+      table.insert(
+        modules,
+        7,
+        (function()
+          return (
+            "%#St_codeiumStatus#"
+            .. "󰘦 "
+            .. vim.api.nvim_call_function("codeium#GetStatusString", {})
+            .. " ~ "
+          )
+        end)()
+      )
     end,
   },
   tabufline = {
