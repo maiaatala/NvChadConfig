@@ -9,13 +9,14 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local sources = {
   formatting.prettierd.with {
     extra_filetypes = { "typescriptreact", "javascriptreact", "md", "json", "html" },
-    condition = function(utils)
-      return utils.root_has_file ".prettierrc" or utils.root_has_file "prettier.config.js"
-    end,
+    -- condition = function(utils)
+    --   return utils.root_has_file ".prettierrc" or utils.root_has_file "prettier.config.js"
+    -- end,
   },
   -- formatting.eslint_d,
   formatting.stylua,
   formatting.ocamlformat,
+  formatting.gofmt,
 
   null_ls.builtins.code_actions.eslint_d, -- suggest fixes from eslint
 
