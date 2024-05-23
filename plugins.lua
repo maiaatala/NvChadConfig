@@ -53,14 +53,17 @@ local plugins = {
     end,
   },
   {
+    "nvim-ts-autotag",
+    event = "BufReadPre",
+    opts = {
+      enable_close_on_slash = false,
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "BufReadPost",
     dependencies = {
-      {
-        "windwp/nvim-ts-autotag",
-        opts = { enable_close_on_slash = false },
-      },
       -- "filNaj/tree-setter",
       "echasnovski/mini.ai",
       "piersolenski/telescope-import.nvim",

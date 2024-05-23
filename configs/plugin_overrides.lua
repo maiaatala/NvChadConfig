@@ -20,10 +20,10 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     -- -- Go Lang
-    -- "go",
-    -- "gomod",
-    -- "gowork",
-    -- "gosum",
+    "go",
+    "gomod",
+    "gowork",
+    "gosum",
 
     -- Web Dev
     "javascript",
@@ -66,9 +66,6 @@ M.treesitter = {
       javascript = "rainbow-tags-react",
       tsx = "rainbow-tags",
     },
-  },
-  autotag = {
-    enable = true,
   },
 }
 
