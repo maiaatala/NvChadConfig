@@ -37,7 +37,11 @@ end
 
 require("ufo").setup {
   open_fold_hl_timeout = 150,
-  close_fold_kinds = { "imports", "comment" },
+  close_fold_kinds_for_ft = {
+    default = { "imports", "comment" },
+    json = { "array" },
+    c = { "comment", "region" },
+  },
   fold_virt_text_handler = handler,
   provider_selector = function(_, filetype, buftype)
     -- use nested markdown folding
