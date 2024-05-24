@@ -8,6 +8,9 @@ vim.keymap.set("n", "<C-z>", "<NOP>")
 vim.keymap.set("v", "<C-z>", "<NOP>")
 vim.keymap.set("i", "<C-z>", "<NOP>")
 
+vim.opt.clipboard = "unnamed"
+
+vim.opt.relativenumber = true
 vim.opt.relativenumber = true
 vim.opt.number = true -- Shows absolute line number on cursor line (when relative number is on)
 -- vim.o.foldenable = true

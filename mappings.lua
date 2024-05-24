@@ -35,6 +35,7 @@ M.disabled = {
     ["<leader>b"] = { "", "disable create new buffer" },
     ["<leader>h"] = { "", "disable create horizontal terminal" },
     ["<leader>v"] = { "", "disable create vertical terminal" },
+    ["<leader>n"] = { "", "disable toggle line number" },
   },
 }
 
@@ -87,13 +88,16 @@ M.text = {
   n = {
     ["J"] = { "mzJ`z", "Join line while keeping the cursor in the same position" },
     ["<leader>d"] = { '"_d', "󰗨 delete without copying" },
-    ["<C-c>"] = { "<ESC>", "makes ctrl c behave like esc when column editing" },
+    -- ["<C-c>"] = { "<ESC>", "makes ctrl c behave like esc when column editing" },
     ["<leader><F2>"] = {
       [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
       " replace current word in file",
     },
     ["<leader>p"] = { '"0p', " Special yank only paste" },
+    ["<leader>pp"] = { '"+p', " Special clipboard only paste" },
     ["<leader>P"] = { '"0P', " Special yank only paste" },
+    ["<leader>PP"] = { '"+P', " Special clipboard only paste" },
+    ["<leader>y"] = { '"+y', "󰆏 Special clipboard only yank" },
   },
   i = {
     ["<A-d>"] = { "<C-o>diw", " Delete word AND CONTINUES" },
@@ -223,6 +227,25 @@ M.harpoon = {
 M.trouble = {
   n = {
     ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "󰔫 Toggle warnings" },
+  },
+}
+
+M.lists = {
+  n = {
+    ["<leader>cq"] = {
+      function()
+        local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+        local action = qf_winid > 0 and "cclose" or "copen"
+        vim.cmd("botright " .. action)
+      end,
+      " toggle quicklist",
+    },
+    ["[q"] = { "<CMD>cprev<CR>", "󰮳 prev quicklist item" },
+    ["]q"] = { "<CMD>cnext<CR>", "󰮱 next quicklist item" },
+    ["[Q"] = { "<CMD>cfirst<CR>", "󰮳 󰮳 first quicklist item" },
+    ["]Q"] = { "<CMD>clast<CR>", "󰮱 󰮱 last quicklist item" },
+    ["[<space>"] = { "<CMD>call append(line('.')-1, '')<CR>", " Add new line below cursor" },
+    ["]<space>"] = { "<CMD>call append(line('.'), '')<CR>", " Add new line below cursor" },
   },
 }
 
