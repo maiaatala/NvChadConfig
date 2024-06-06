@@ -104,7 +104,7 @@ local plugins = {
     end,
   },
   {
-    "NvChad/nvterm",
+    "zbirenbaum/nvterm",
     config = function()
       require("nvterm").setup {
 
@@ -201,6 +201,8 @@ local plugins = {
         query = {
           [""] = "rainbow-delimiters",
           lua = "rainbow-blocks",
+          -- tsx = "rainbow-parens",
+          -- typescript = "rainbow-parens",
         },
         highlight = {
           "RainbowDelimiterRed",
@@ -214,5 +216,13 @@ local plugins = {
       }
     end,
   },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   main = "ibl",
+  --   opts = overrides.blankline,
+  --   -- config = function()
+  --   -- require("ibl").setup()
+  --   -- end,
+  -- },
 }
 return plugins
