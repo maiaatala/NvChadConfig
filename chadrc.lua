@@ -15,11 +15,12 @@ M.ui = {
       table.remove(modules, 11) -- remove file type
       table.remove(modules, 10) -- remove file encoding
       table.remove(modules, 9) -- remove cursor position
+      table.remove(modules, 8) -- remove changes and additions
       table.remove(modules, 3) -- remove git branch info
 
       table.insert(
         modules,
-        7,
+        8,
         (function()
           return (
             "%#St_codeiumStatus#"

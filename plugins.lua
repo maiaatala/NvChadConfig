@@ -27,6 +27,7 @@ local plugins = {
       require "custom.configs.null-ls"
       require "custom.configs.lspconfig"
     end,
+    event = "BufReadPre",
   },
   {
     "hrsh7th/nvim-cmp",
@@ -202,7 +203,8 @@ local plugins = {
           [""] = "rainbow-delimiters",
           lua = "rainbow-blocks",
           -- tsx = "rainbow-parens",
-          -- typescript = "rainbow-parens",
+          typescript = "rainbow-parens",
+          javascript = "rainbow-delimiters-react",
         },
         highlight = {
           "RainbowDelimiterRed",
@@ -216,13 +218,30 @@ local plugins = {
       }
     end,
   },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   main = "ibl",
-  --   opts = overrides.blankline,
-  --   -- config = function()
-  --   -- require("ibl").setup()
-  --   -- end,
-  -- },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      -- enabled = false,
+      indentLine_enabled = 1,
+      filetype_exclude = {
+        "help",
+        "terminal",
+        "lazy",
+        "lspinfo",
+        "TelescopePrompt",
+        "TelescopeResults",
+        "mason",
+        "nvdash",
+        "nvcheatsheet",
+        "",
+      },
+      buftype_exclude = { "terminal" },
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = false,
+      show_current_context = true,
+      show_current_context_start = false,
+    },
+  },
 }
 return plugins
