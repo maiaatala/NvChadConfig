@@ -107,7 +107,10 @@ M.text = {
     ["J"] = { ":m '>+1<CR>gv=gv", " Move line down" },
     ["<leader>d"] = { '"_d', "󰗨 delete without copying" },
     ["<leader>p"] = { '"0p', " Special yank only paste" },
+    ["<leader>pp"] = { '"+p', " Special clipboard only paste" },
     ["<leader>P"] = { '"0P', " Special yank only paste" },
+    ["<leader>PP"] = { '"+P', " Special clipboard only paste" },
+    ["<leader>y"] = { '"+y', "󰆏 Special clipboard only yank" },
   },
 }
 
@@ -244,8 +247,8 @@ M.lists = {
     ["]q"] = { "<CMD>cnext<CR>", "󰮱 next quicklist item" },
     ["[Q"] = { "<CMD>cfirst<CR>", "󰮳 󰮳 first quicklist item" },
     ["]Q"] = { "<CMD>clast<CR>", "󰮱 󰮱 last quicklist item" },
-    ["[<space>"] = { "<CMD>call append(line('.')-1, '')<CR>", " Add new line below cursor" },
-    ["]<space>"] = { "<CMD>call append(line('.'), '')<CR>", " Add new line below cursor" },
+    ["[<space>"] = { "<CMD>call append(line('.')-1, '')<CR>", " Add new line below cursor" },
+    ["]<space>"] = { "<CMD>call append(line('.'), '')<CR>", " Add new line below cursor" },
   },
 }
 
