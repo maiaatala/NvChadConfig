@@ -3,6 +3,7 @@
 local null_ls = require "null-ls"
 
 local formatting = null_ls.builtins.formatting
+local builtins = null_ls.builtins
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -18,9 +19,9 @@ local sources = {
   formatting.ocamlformat,
   formatting.gofmt,
 
-  null_ls.builtins.code_actions.eslint_d, -- suggest fixes from eslint
+  builtins.code_actions.eslint_d, -- suggest fixes from eslint
 
-  null_ls.builtins.diagnostics.eslint_d.with {
+  builtins.diagnostics.eslint_d.with {
     condition = function(utils)
       return utils.root_has_file { ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" }
     end,
@@ -28,7 +29,7 @@ local sources = {
 }
 
 null_ls.setup {
-  debug = true,
+  -- debug = true,
   sources = sources,
 
   on_attach = function(client, bufnr)

@@ -2,9 +2,11 @@
 require "plugins.configs.lspconfig"
 
 local on_attach = require("plugins.configs.lspconfig").on_attach
+local on_init = require("plugins.configs.lspconfig").on_init
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
 local ok, _ = pcall(require, "ufo")
 if ok then
@@ -26,6 +28,7 @@ local servers = {
 for _, server in ipairs(servers) do
   lspconfig[server].setup {
     on_attach = on_attach,
+    on_init = on_init,
     capabilities = capabilities,
   }
 end
@@ -39,6 +42,7 @@ lspconfig.tsserver.setup {
       importModuleSpecifierEnding = "minimal",
     },
   },
+  on_init = on_init,
 }
 
 lspconfig.lua_ls.setup {
