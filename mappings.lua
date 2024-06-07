@@ -132,7 +132,8 @@ map("n", "<leader>hh", function()
 end, { desc = "󰒮 Navigate to previous file" })
 
 -- TROUBLE
-map("n", "<leader>tt", "<CMD>TroubleToggle<CR>", { desc = "󰔫 Toggle warnings" })
+map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "󰔫 Toggle warnings" })
+map("n", "<leader>tT", "<CMD>Trouble diagnostics toggle<CR>", { desc = "󰔫 Toggle warnings for root" })
 
 -- LISTS
 map("n", "<leader>cq", function()
