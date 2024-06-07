@@ -8,7 +8,7 @@ M.ui = {
   hl_add = highlights.add,
   hl_override = highlights.override,
   statusline = {
-    theme = "default",
+    theme = "vscode_colored",
     separator_style = "arrow",
     overriden_modules = function(modules)
       -- table.remove(modules, 13) -- remove folder
