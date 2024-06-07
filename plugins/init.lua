@@ -227,6 +227,8 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    --todo this config
+    config = function()
+      require "configs.indent_blankline"
+    end,
   },
 }
