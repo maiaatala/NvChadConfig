@@ -1,4 +1,4 @@
-local highlights = require "custom.configs.highlights_overrides"
+local highlights = require "configs.highlights_overrides"
 
 ---@type ChadrcConfig
 local M = {}
@@ -38,7 +38,5 @@ M.ui = {
     end,
   },
 }
-M.plugins = "custom.plugins"
-M.mappings = require "custom.mappings"
 
 return M

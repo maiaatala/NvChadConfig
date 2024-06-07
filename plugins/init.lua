@@ -1,7 +1,13 @@
--- local NvimTreeAttach = require "custom.configs.nvimTree_config"
-local overrides = require "custom.configs.plugin_overrides"
+local overrides = require "configs.plugin_overrides"
 
-local plugins = {
+return {
+  {
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    config = function()
+      require "configs.conform"
+    end,
+  },
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
@@ -23,38 +29,38 @@ local plugins = {
       "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.null-ls"
-      require "custom.configs.lspconfig"
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.null-ls"
+      require "configs.lspconfig"
     end,
     event = "BufReadPre",
   },
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      return require "custom.configs.cmp_overrides"
+      return require "configs.cmp_overrides"
     end,
   },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   event = "BufEnter",
+  --   config = function()
+  --     vim.keymap.set("i", "<c-Right>", function()
+  --       return vim.fn["codeium#CycleCompletions"](1)
+  --     end, { expr = true, silent = true })
+  --     vim.keymap.set("i", "<c-Left>", function()
+  --       return vim.fn["codeium#CycleCompletions"](-1)
+  --     end, { expr = true, silent = true })
+  --     vim.keymap.set("i", "<c-Up>", function()
+  --       return vim.fn["codeium#Clear"]()
+  --     end, { expr = true, silent = true })
+  --     vim.keymap.set("i", "<c-Down>", function()
+  --       return vim.fn["codeium#Complete"]()
+  --     end, { expr = true, silent = true })""
+  --   end,
+  -- },
   {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
-    config = function()
-      vim.keymap.set("i", "<c-Right>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-Left>", function()
-        return vim.fn["codeium#CycleCompletions"](-1)
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-Up>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-Down>", function()
-        return vim.fn["codeium#Complete"]()
-      end, { expr = true, silent = true })
-    end,
-  },
-  {
-    "nvim-ts-autotag",
+    "windwp/nvim-ts-autotag",
     event = "BufReadPre",
     opts = {
       enable_close_on_slash = false,
@@ -74,13 +80,13 @@ local plugins = {
         "kevinhwang91/nvim-ufo",
         lazy = false,
         config = function()
-          require "custom.configs.ufo"
+          require "configs.ufo"
         end,
       },
       {
         "nvim-treesitter/nvim-treesitter-context",
         config = function()
-          require "custom.configs.treesitter_context"
+          require "configs.treesitter_context"
         end,
       },
       {
@@ -101,7 +107,7 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "antosha417/nvim-lsp-file-operations" },
     config = function()
-      require("nvim-tree").setup(require "custom.configs.nvimTree_config")
+      require("nvim-tree").setup(require "configs.nvimTree_config")
     end,
   },
   {
@@ -133,7 +139,7 @@ local plugins = {
     "stevearc/oil.nvim",
     lazy = false, -- we need this plugin at startup
     config = function()
-      require "custom.configs.oil_config"
+      require "configs.oil_config"
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
@@ -167,7 +173,7 @@ local plugins = {
     "folke/todo-comments.nvim",
     event = "BufReadPost",
     config = function()
-      require "custom.configs.todo_comments"
+      require "configs.todo_comments"
     end,
   },
   {
@@ -178,14 +184,14 @@ local plugins = {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
     config = function()
-      require "custom.configs.trouble"
+      require "configs.trouble"
     end,
   },
   {
     "dnlhc/glance.nvim",
     cmd = "Glance",
     config = function()
-      require "custom.configs.glance"
+      require "configs.glance"
     end,
   },
   {
@@ -221,27 +227,6 @@ local plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {
-      -- enabled = false,
-      indentLine_enabled = 1,
-      filetype_exclude = {
-        "help",
-        "terminal",
-        "lazy",
-        "lspinfo",
-        "TelescopePrompt",
-        "TelescopeResults",
-        "mason",
-        "nvdash",
-        "nvcheatsheet",
-        "",
-      },
-      buftype_exclude = { "terminal" },
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = false,
-      show_current_context = true,
-      show_current_context_start = false,
-    },
+    --todo this config
   },
 }
-return plugins

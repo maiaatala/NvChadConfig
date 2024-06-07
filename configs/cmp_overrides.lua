@@ -1,5 +1,5 @@
 local cmp = require "cmp"
-local opts = require "plugins.configs.cmp"
+local opts = require "nvchad.configs.cmp"
 
 opts.mapping["<C-p>"] = cmp.mapping.select_prev_item {}
 opts.mapping["<C-n>"] = cmp.mapping.select_next_item {}
