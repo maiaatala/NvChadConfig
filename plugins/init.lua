@@ -125,7 +125,6 @@ return {
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-
   {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
@@ -212,5 +211,13 @@ return {
     config = function()
       require "configs.indent_blankline"
     end,
+  },
+  {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
+    -- config = function()
+    --   require("treesj").setup {--[[ your config ]]
+    --   }
+    -- end,
   },
 }

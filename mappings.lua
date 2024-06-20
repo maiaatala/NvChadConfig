@@ -118,6 +118,9 @@ map("n", "<C-l>", function()
 end, { desc = "split: [l]: Move to window on the right or create a split" })
 map("n", "Zz", "<C-w>|<C-w>_", { desc = "split:  max zoom in a window" })
 map("n", "Zo", "<C-w>=", { desc = "split:  zoom out" })
+map("n", "gj", function()
+  require("treesj").toggle()
+end, { desc = "split: split objects and functions" })
 
 -- LSP
 map("n", "<leader>gR", "<CMD>Glance references<CR>", { desc = "LSP:  references" })
