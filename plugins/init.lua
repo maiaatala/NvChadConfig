@@ -139,16 +139,19 @@ return {
         save_on_change = true,
       },
     },
+    config = function()
+      local hp = require "harpoon"
+      local ext = require "harpoon.extensions"
+      hp:setup()
+      hp:extend(ext.builtins.command_on_nav "UfoEnableFold")
+      hp:extend(ext.builtins.navigate_with_number())
+    end,
   },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     opts = {},
-    -- config = function()
-    --   require("nvim-surround").setup {
-    --     -- Configuration here, or leave empty to use defaults
-    -- end,
   },
   {
     "folke/todo-comments.nvim",
