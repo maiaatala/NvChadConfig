@@ -94,6 +94,8 @@ map(
   { desc = "text:  replace current word in file" }
 )
 map("i", "<A-d>", "<C-o>diw", { desc = "text:  Delete word AND CONTINUES" })
+map("n", "[<space>", "<CMD>call append(line('.')-1, '')<CR>", { desc = "lists:  Add new line below cursor" })
+map("n", "]<space>", "<CMD>call append(line('.'), '')<CR>", { desc = "lists:  Add new line below cursor" })
 -- TEXT BUT COPYING STUFF
 map({ "n", "v" }, "<leader>d", '"_d', { desc = "text: 󰗨 delete without copying" })
 map({ "n", "v" }, "<leader>p", '"0p', { desc = "text:  Special yank only paste" })
@@ -176,7 +178,5 @@ map("n", "]q", "<CMD>cnext<CR>", { desc = "lists: 󰮱 next quicklist item" })
 map("n", "[Q", "<CMD>cfirst<CR>", { desc = "lists: 󰮳 󰮳 first quicklist item" })
 map("n", "[Q", "<CMD>clast<CR>", { desc = "lists: 󰮱 󰮱 last quicklist item" })
 map("n", "[Q", "<CMD>clast<CR>", { desc = "lists: 󰮱 󰮱 last quicklist item" })
-map("n", "[<space>", "<CMD>call append(line('.')-1, '')<CR>", { desc = "lists:  Add new line below cursor" })
-map("n", "]<space>", "<CMD>call append(line('.'), '')<CR>", { desc = "lists:  Add new line below cursor" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
