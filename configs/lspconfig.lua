@@ -3,7 +3,14 @@ require "nvchad.configs.lspconfig"
 
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+-- local capabilities = require("nvchad.configs.lspconfig").capabilities
+local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), {
+  workspace = {
+    didChangeWatchedFiles = {
+      dynamicRegistration = false,
+    },
+  },
+})
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
