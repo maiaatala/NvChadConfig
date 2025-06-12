@@ -20,6 +20,7 @@ return {
         "ocamlformat",
         "stylua",
         "htmx-lsp",
+        "templ",
       },
     },
   },
