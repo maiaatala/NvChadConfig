@@ -31,6 +31,7 @@ local servers = {
   "templ",
   -- "gleam",
   "htmx",
+  "pyright",
 }
 
 for _, server in ipairs(servers) do
@@ -73,13 +74,13 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.gleam.setup {
-  cmd = { "gleam", "lsp" },
-  filetypes = { "gleam" },
-  -- root_dir = lspconfig.util.root_pattern("gleam.toml"),
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lspconfig.gleam.setup {
+--   cmd = { "gleam", "lsp" },
+--   filetypes = { "gleam" },
+--   -- root_dir = lspconfig.util.root_pattern("gleam.toml"),
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 -- lspconfig.ocamllsp.setup {
 --   cmd = { "ocaml-lsp" },

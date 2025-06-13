@@ -2,36 +2,33 @@ local overrides = require "configs.plugin_overrides"
 
 return {
   {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
-  {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     opts = {
       ensure_installed = {
         "typescript-language-server",
         "prettierd",
-        "eslint_d",
+        "eslint-lsp",
         "lua-language-server",
-        "ocamlformat",
+        -- "ocamlformat",
         "stylua",
         "htmx-lsp",
         "templ",
+        "pyright",
       },
     },
   },
   {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      require "configs.none-ls"
+    end,
+    event = "BufReadPre",
+  },
+  {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-    },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require "configs.null-ls"
       require "configs.lspconfig"
     end,
     event = "BufReadPre",
