@@ -26,8 +26,8 @@ end
 local servers = {
   -- "tsserver",
   "eslint",
-  "ocamllsp",
-  "gopls",
+  -- "ocamllsp",
+  -- "gopls",
   "templ",
   -- "gleam",
   "htmx",

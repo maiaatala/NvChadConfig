@@ -12,7 +12,7 @@ return {
         "lua-language-server",
         -- "ocamlformat",
         "stylua",
-        "htmx-lsp",
+        -- "htmx-lsp",
         "templ",
         "pyright",
       },
