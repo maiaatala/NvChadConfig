@@ -42,7 +42,7 @@ for _, server in ipairs(servers) do
   }
 end
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   onAttach = on_attach,
   capabilities = capabilities,
   init_options = {
