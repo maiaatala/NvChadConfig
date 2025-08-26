@@ -28,10 +28,10 @@ local servers = {
   "eslint",
   -- "ocamllsp",
   -- "gopls",
-  "templ",
+  -- "templ",
   -- "gleam",
-  "htmx",
-  "pyright",
+  -- "htmx",
+  -- "pyright",
 }
 
 for _, server in ipairs(servers) do
