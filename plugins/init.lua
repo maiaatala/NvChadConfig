@@ -19,6 +19,15 @@ return {
     },
   },
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+    config = function()
+      require "configs.telescope"
+    end,
+  },
+  {
     "nvimtools/none-ls.nvim",
     config = function()
       require "configs.none-ls"
