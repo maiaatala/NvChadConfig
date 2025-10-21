@@ -1,9 +1,11 @@
 -- custom/configs/lspconfig.lua
-require "nvchad.configs.lspconfig"
+-- require "nvchad.configs.lspconfig"
+--
+local lsp_config = vim.lsp.config
 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
--- local capabilities = require("nvchad.configs.lspconfig").capabilities
+local on_attach = lsp_config.on_attach
+local on_init = lsp_config.on_init
+-- local capabilities = lsp_config.capabilities
 local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), {
   workspace = {
     didChangeWatchedFiles = {
