@@ -15,7 +15,20 @@ vim.keymap.set("n", "<C-z>", "<NOP>")
 vim.keymap.set("v", "<C-z>", "<NOP>")
 vim.keymap.set("i", "<C-z>", "<NOP>")
 
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
+vim.g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
+  },
+  cache_enabled = true,
+}
+vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 vim.opt.relativenumber = true
 vim.opt.relativenumber = true
