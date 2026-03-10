@@ -18,9 +18,12 @@ local sources = {
   formatting.stylua,
   formatting.ocamlformat,
   formatting.gofmt,
+  formatting.ruff,
 
   builtins.code_actions.eslint_d, -- suggest fixes from eslint
+  builtins.code_actions.ruff,
 
+  builtins.diagnostics.ruff,
   builtins.diagnostics.eslint_d.with {
     condition = function(utils)
       return utils.root_has_file { ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" }

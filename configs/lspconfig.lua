@@ -13,7 +13,7 @@ local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_c
 })
 
 -- local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
+-- local util = require "lspconfig/util"
 
 local ok, _ = pcall(require, "ufo")
 if ok then
@@ -42,20 +42,32 @@ for _, server in ipairs(servers) do
   -- }
 end
 
-vim.lsp.enable(tsserver)
--- .setup {
---   onAttach = on_attach,
---   capabilities = capabilities,
---   init_options = {
---     preferences = {
---       importModuleSpecifierPreference = "relative",
---       importModuleSpecifierEnding = "minimal",
---     },
---   },
---   on_init = on_init,
--- }
+vim.lsp.config("ruff", {
+  cmd = {"ruff-lsp"},
+  filetypes = {"python", "py"},
+  root_markers = {"pyproject.toml", "ruff.toml"},
+  init_options = {
+    setting = {
+      --settings here
+    },
+  },
+})
+vim.lsp.enable "ruff"
 
-vim.lsp.enable(lua_ls)
+vim.lsp.config("tsserver", {
+  onAttach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      importModuleSpecifierPreference = "relative",
+      importModuleSpecifierEnding = "minimal",
+    },
+  },
+  on_init = on_init,
+})
+vim.lsp.config('tsserver')
+
+vim.lsp.enable('lua_ls')
 -- lspconfig.lua_ls.setup {
 --   onAttach = on_attach,
 --   capabilities = capabilities,
