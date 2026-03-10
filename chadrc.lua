@@ -22,4 +22,9 @@ M.ui = {
   },
 }
 
+-- OLD style (compatibility for base46)
+M.base46 = {
+  transparency = M.ui.transparency,
+}
+
 return M

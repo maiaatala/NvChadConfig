@@ -43,9 +43,13 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "vim: CMD enter command mode" })
 map("n", "<leader>ttt", function()
-  require("base46").toggle_transparency()
+  local ok, base46 = pcall(require, "base46")
+  if ok and base46.toggle_transparency then
+    base46.toggle_transparency()
+  else
+    vim.notify("base46 not ready", vim.log.levels.WARN)
+  end
 end, { desc = "vim: 󱡕 toggle transparency" })
-
 -- GIT
 map({ "n", "v" }, "<leader>lg", "<CMD>LazyGit<CR>", { desc = "git:   LazyGit" })
 map("n", "]g", function()
@@ -166,6 +170,9 @@ end, { desc = "harpoon: 󰒮 Navigate to previous file" })
 -- TROUBLE
 map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "trouble: 󰔫 Toggle warnings" })
 map("n", "<leader>tT", "<CMD>Trouble diagnostics toggle<CR>", { desc = "trouble: 󰔫 Toggle warnings for root" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
+map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
+
 
 -- LISTS
 map("n", "<leader>cq", function()

@@ -24,8 +24,17 @@ return {
     },
   },
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+    config = function()
+      require "configs.telescope"
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
-"nvim-lua/plenary.nvim",
+    "nvim-lua/plenary.nvim",
     dependencies = {
       "nvimtools/none-ls.nvim",
     },
