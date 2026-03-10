@@ -25,8 +25,9 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+"nvim-lua/plenary.nvim",
     dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
     },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
@@ -56,7 +57,6 @@ return {
       -- "filNaj/tree-setter",
       "echasnovski/mini.ai",
       "piersolenski/telescope-import.nvim",
-      "RRethy/nvim-treesitter-textsubjects",
       "kevinhwang91/promise-async",
       {
         "kevinhwang91/nvim-ufo",

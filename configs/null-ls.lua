@@ -1,6 +1,6 @@
 -- custom/configs/null-ls.lua
 
-local null_ls = require "null-ls"
+local null_ls = require "none-ls"
 
 local formatting = null_ls.builtins.formatting
 local builtins = null_ls.builtins

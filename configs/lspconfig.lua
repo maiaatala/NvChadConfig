@@ -12,7 +12,7 @@ local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_c
   },
 })
 
-local lspconfig = require "lspconfig"
+-- local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 local ok, _ = pcall(require, "ufo")
@@ -28,57 +28,61 @@ local servers = {
   "eslint",
   "ocamllsp",
   "gopls",
+  "ts_ls",
   -- "gleam",
   "htmx",
 }
 
 for _, server in ipairs(servers) do
-  lspconfig[server].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
+  vim.lsp.enable(server)
+  -- .setup {
+  --   on_attach = on_attach,
+  --   on_init = on_init,
+  --   capabilities = capabilities,
+  -- }
 end
 
-lspconfig.tsserver.setup {
-  onAttach = on_attach,
-  capabilities = capabilities,
-  init_options = {
-    preferences = {
-      importModuleSpecifierPreference = "relative",
-      importModuleSpecifierEnding = "minimal",
-    },
-  },
-  on_init = on_init,
-}
+vim.lsp.enable(tsserver)
+-- .setup {
+--   onAttach = on_attach,
+--   capabilities = capabilities,
+--   init_options = {
+--     preferences = {
+--       importModuleSpecifierPreference = "relative",
+--       importModuleSpecifierEnding = "minimal",
+--     },
+--   },
+--   on_init = on_init,
+-- }
 
-lspconfig.lua_ls.setup {
-  onAttach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        globals = { "use", "vim" },
-      },
-      workspace = {
-        library = {
-          vim.env.VIMRUNTIME,
-        },
-      },
-    },
-  },
-}
+vim.lsp.enable(lua_ls)
+-- lspconfig.lua_ls.setup {
+--   onAttach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         version = "LuaJIT",
+--       },
+--       diagnostics = {
+--         globals = { "use", "vim" },
+--       },
+--       workspace = {
+--         library = {
+--           vim.env.VIMRUNTIME,
+--         },
+--       },
+--     },
+--   },
+-- }
 
-lspconfig.gleam.setup {
-  cmd = { "gleam", "lsp" },
-  filetypes = { "gleam" },
-  -- root_dir = lspconfig.util.root_pattern("gleam.toml"),
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lspconfig.gleam.setup {
+--   cmd = { "gleam", "lsp" },
+--   filetypes = { "gleam" },
+--   -- root_dir = lspconfig.util.root_pattern("gleam.toml"),
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 -- lspconfig.ocamllsp.setup {
 --   cmd = { "ocaml-lsp" },
