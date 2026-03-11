@@ -23,7 +23,6 @@ local sources = {
   builtins.code_actions.eslint_d, -- suggest fixes from eslint
   builtins.code_actions.ruff,
 
-  builtins.diagnostics.ruff,
   builtins.diagnostics.eslint_d.with {
     condition = function(utils)
       return utils.root_has_file { ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" }
@@ -47,7 +46,7 @@ null_ls.setup {
           vim.lsp.buf.format {
             bufnr = bufnr,
             filter = function(cliente)
-              return cliente.name == "null-ls" --this ensures null_ls client is called to format, not normal LspFormatting
+              return cliente.name == "none-ls" --this ensures null_ls client is called to format, not normal LspFormatting
             end,
             async = false,
           }

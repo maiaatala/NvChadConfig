@@ -20,9 +20,18 @@ return {
         "ocamlformat",
         "stylua",
         "htmx-lsp",
-        "ruff"
+        "ruff",
       },
     },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-lspconfig").setup {
+        automatic_enable = true,
+      }
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -173,6 +182,11 @@ return {
   {
     "f-person/git-blame.nvim",
     cmd = "GitBlameToggle",
+  },
+  {
+    {
+      "lewis6991/gitsigns.nvim",
+    },
   },
   {
     "folke/trouble.nvim",
