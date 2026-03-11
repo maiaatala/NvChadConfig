@@ -13,25 +13,25 @@ return {
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     opts = {
       ensure_installed = {
-        "typescript-language-server",
-        "prettierd",
-        "eslint_d",
         "lua-language-server",
-        "ocamlformat",
+        "gopls",
+        "typescript-language-server",
+        "eslint_d",
+        "prettierd",
         "stylua",
-        "htmx-lsp",
+        "ocamlformat",
         "ruff",
+        "htmx-lsp",
+        "basedpyright",
       },
     },
   },
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
-    config = function()
-      require("mason-lspconfig").setup {
-        automatic_enable = true,
-      }
-    end,
+    opts = {
+      automatic_installation = true,
+    },
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -44,14 +44,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    "nvim-lua/plenary.nvim",
     dependencies = {
+      "williamboman/mason-lspconfig.nvim",
       "nvimtools/none-ls.nvim",
     },
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.null-ls"
-      require "configs.lspconfig"
+      require "configs.lsp"
+      require "configs.nonels"
     end,
     event = "BufReadPre",
   },
