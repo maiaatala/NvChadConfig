@@ -52,6 +52,32 @@ map("n", "<leader>ttt", function()
 end, { desc = "vim: 󱡕 toggle transparency" })
 -- GIT
 map({ "n", "v" }, "<leader>lg", "<CMD>LazyGit<CR>", { desc = "git:   LazyGit" })
+map("n", "<leader>fg", "<CMD>Telescope git_status<CR>", { desc = "git: see list of changed files" })
+map("n", "<leader>hp", function()
+  local gitsigns = require "gitsigns"
+  gitsigns.preview_hunk()
+end, { desc = "git: preview hunk inline" })
+
+map("n", "<leader>hi", function()
+  local gitsigns = require "gitsigns"
+  gitsigns.preview_hunk_inline()
+end, { desc = "git: preview hunk" })
+
+map("n", "<leader>hb", function()
+  local gitsigns = require "gitsigns"
+  gitsigns.blame_line { full = true }
+end, { desc = "git: view full line blame" })
+
+map("n", "<leader>hbi", function()
+  local gitsigns = require "gitsigns"
+  gitsigns.toggle_current_line_blame()
+end, { desc = "git: toggle inline blame" })
+
+map("n", "<leader>hr", function()
+  local gitsigns = require "gitsigns"
+  gitsigns.reset_hunk()
+end, { desc = "git: reset hunk" })
+
 map("n", "]g", function()
   local gitsigns = require "gitsigns"
   if vim.wo.diff then
@@ -172,7 +198,6 @@ map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { des
 map("n", "<leader>tT", "<CMD>Trouble diagnostics toggle<CR>", { desc = "trouble: 󰔫 Toggle warnings for root" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
 map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
-
 
 -- LISTS
 map("n", "<leader>cq", function()
