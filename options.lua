@@ -67,10 +67,10 @@ end
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 -- like the one below but for eslint fix all
-autocmd("BufWritePre", {
-  pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-  command = "EslintFixAll",
-})
+-- autocmd("BufWritePre", {
+--   pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+--   command = "EslintFixAll",
+-- })
 
 local format_group = vim.api.nvim_create_augroup("LspFormatOnSave", {})
 

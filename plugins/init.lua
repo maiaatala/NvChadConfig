@@ -17,6 +17,7 @@ return {
         "gopls",
         "typescript-language-server",
         "eslint_d",
+        "ts_ls",
         "prettierd",
         "stylua",
         "ocamlformat",

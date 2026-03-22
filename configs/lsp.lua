@@ -2,8 +2,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local servers = {
   "gopls",
-  "eslint",
-  "ts_ls",
+  -- "eslint",
+  -- "ts_ls",
   "lua_ls",
   "ocamllsp",
   "htmx",
@@ -48,3 +48,18 @@ vim.lsp.config("ruff", {
 })
 
 vim.lsp.enable "ruff"
+
+vim.lsp.config("vtsls", {
+  cmd = { "vtsls", "--stdio" },
+  filetypes = { "javascript", "javascriptreact" },
+
+  root_markers = { "package.json", "jsconfig.json", ".git" },
+
+  settings = {
+    javascript = {
+      format = { enable = false }, -- let prettier/eslint handle it
+    },
+  },
+})
+
+vim.lsp.enable("vtsls")
